@@ -416,7 +416,7 @@ input[type="range"] {
     justify-content: center;
     color: var(--text-light);
     font-size: 1.2rem;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 /* Footer */
@@ -636,6 +636,7 @@ footer {
 }
 
 #start-button {
+    margin-top: 20px;
     padding: 25px 110px;
     font-size: 20px;
     font-weight: bold;
