@@ -454,7 +454,7 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 20%;
+    object-position: 58% 20%;
     /* смести фокус, если нужно: 50% 30% и т.п. */
     filter: saturate(1.05) contrast(1.05);
     z-index: 0;
