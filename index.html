@@ -175,14 +175,22 @@
                     <button id="start-button">Start</button>
                 </div>
 
-                <div class="video-generator" id="video-generator" style="display: none;">
+                <!-- <div class="video-generator" id="video-generator" style="display: none;">
                     <div class="preview-area">
                         <video id="anniv-video" class="preview-box" controls>
-                            <source src="video/anniv.mp4" type="video/mp4">
+                            <source src="1.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
+                </div> -->
+                <div class="video-wrapper" id="video-wrapper">
+                    <video id="anniv-video" class="preview-box">
+                        <source src="1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <button id="custom-play-btn" class="play-btn">▶</button>
                 </div>
+
             </div>
         </section>
     </main>
@@ -201,34 +209,50 @@
         </div>
     </div>
     <script>
-        document.getElementById("start-button").addEventListener("click", function () {
-            // Скрыть кнопку
-            document.getElementById("start-button-container").style.display = "none";
-            // Показать видео
-            document.getElementById("video-generator").style.display = "block";
+        const playBtn = document.getElementById('custom-play-btn');
+        const video = document.getElementById('anniv-video');
+        const bgMusic = document.getElementById('bg-music');
+
+        // Клик по кнопке Play/Pause
+        playBtn.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                playBtn.style.display = 'none';
+            } else {
+                video.pause();
+                playBtn.style.display = 'block';
+            }
         });
 
-        const bgMusic = document.getElementById('bg-music');
-        const video = document.getElementById('anniv-video');
+        // Показ кнопки при остановке
+        video.addEventListener('pause', () => {
+            playBtn.style.display = 'block';
+        });
 
-        // ⬇️ Фоновая музыка — только по клику на первую кнопку
+        // Скрытие кнопки при проигрывании
+        video.addEventListener('play', () => {
+            playBtn.style.display = 'none';
+        });
+
+        // Кнопка "Click to begin our love story" — запускаем музыку
         document.getElementById("start-love").addEventListener("click", function (e) {
-            e.preventDefault(); // чтобы не прыгало
+            e.preventDefault();
             bgMusic.volume = 0.3;
             bgMusic.play().catch(() => {
                 console.log("Музыка не запущена — пользователь не дал разрешение.");
             });
 
-            // Плавный скролл к началу основной части
+            // Плавный скролл вниз
             document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // Кнопка видео: показываем и останавливаем музыку
+        // Кнопка Start для видео
         document.getElementById("start-button").addEventListener("click", function () {
             document.getElementById("start-button-container").style.display = "none";
-            document.getElementById("video-generator").style.display = "block";
+            document.getElementById("video-wrapper").style.display = "block";
         });
 
+        // Остановить фоновую музыку при запуске видео
         video.addEventListener('play', () => {
             if (!bgMusic.paused) {
                 bgMusic.pause();
@@ -236,6 +260,7 @@
             }
         });
     </script>
+
 
 </body>
 
