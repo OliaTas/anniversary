@@ -72,6 +72,11 @@ header p {
     margin: 0 auto 30px;
 }
 
+.timeline-text {
+    text-align: center;
+    color: var(--rose-dark);
+}
+
 .btn {
     display: inline-block;
     background-color: var(--text-light);
@@ -645,6 +650,29 @@ footer {
 #start-button-container {
     /* margin-top: 30px; */
 }
+
+.lang-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.btn.small {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn.small:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
 
 
 
