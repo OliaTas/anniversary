@@ -284,7 +284,7 @@ section {
 }
 
 .year-content {
-    padding: 20px 30px;
+    padding: 20px 20px;
     background-color: var(--text-light);
     position: relative;
     border-radius: 6px;
@@ -740,8 +740,8 @@ footer {
 
     .year-container {
         width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
+        padding-left: 50px;
+        padding-right: 20px;
     }
 
     .year-container::before {
@@ -777,3 +777,5 @@ footer {
         margin-right: 15px;
     }
 }
+
+
